@@ -1,3 +1,3 @@
-const ChatPage = () => <div className='text-yellow-400'>Chat</div>;
+const ChatPage = () => <div className='text-gradient font-heading text-3xl font-bold'>Chat</div>;
 
 export default ChatPage;
