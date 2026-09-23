@@ -5,3 +5,4 @@ export * from "./message";
 export * from "./separator";
 export * from "./label";
 export * from "./spinner";
+export * from "./skeleton";
