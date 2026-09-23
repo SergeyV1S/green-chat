@@ -83,8 +83,9 @@ export const AuthForm = () => {
       <Button
         type='submit'
         size='lg'
+        variant='gradient'
         disabled={state.isSubmitting}
-        className='bg-brand-gradient w-full text-base'
+        className='w-full text-base'
       >
         {state.isSubmitting && <Spinner />}
         Войти
