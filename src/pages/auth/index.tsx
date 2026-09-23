@@ -1,3 +1,9 @@
-const AuthPage = () => <div className='text-gradient font-heading text-3xl font-bold'>Auth</div>;
+import { AuthForm } from "@/pages/auth/components";
+
+const AuthPage = () => (
+  <div className='flex min-h-svh items-center justify-center bg-background p-4'>
+    <AuthForm />
+  </div>
+);
 
 export default AuthPage;
