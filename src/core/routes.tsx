@@ -1,6 +1,7 @@
 import { lazy } from "react";
-import { Link, createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router";
 
+import { ChatsLayout } from "@/layouts/chats";
 import { RootLayout } from "@/layouts/root";
 import { PATHS } from "@/shared/constants/paths";
 import { createRoute } from "@/shared/utils";
@@ -15,17 +16,11 @@ const router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
-      {
-        path: "/",
-        element: (
-          <div className='space-x-11'>
-            <Link to={PATHS.AUTH}>AUTH</Link>
-            <Link to={PATHS.CHAT}>CHAT</Link>
-          </div>
-        )
-      },
       AuthRoute,
-      ChatRoute
+      {
+        element: <ChatsLayout />,
+        children: [ChatRoute]
+      }
     ]
   }
 ]);

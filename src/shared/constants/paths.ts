@@ -1,5 +1,4 @@
 export const PATHS = {
-  ROOT: "/",
-  AUTH: "auth",
-  CHAT: "chat"
+  CHAT: "/",
+  AUTH: "auth"
 };
