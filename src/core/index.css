@@ -95,6 +95,8 @@
 
   --gradient-brand: linear-gradient(135deg, var(--blue-giant) 0%, var(--purple-pulsar) 100%);
   --gradient-brand-soft: linear-gradient(135deg, var(--blue-comet) 0%, var(--purple-nebula) 100%);
+  --gradient-chat: linear-gradient(180deg, oklch(0.78 0.1 245) 0%, oklch(0.85 0.06 200) 100%);
+  --pattern-color: oklch(0.7 0.1 248);
 
   --background: var(--white-light);
   --foreground: var(--dark-matter);
