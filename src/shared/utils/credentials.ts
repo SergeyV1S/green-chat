@@ -11,7 +11,7 @@ export const saveCredentials = (credentials: Credentials) => {
 };
 
 export const getCredentials = () => {
-  const credentials = sessionStorage.getItem(STORAGE_KEY);
+  const credentials = localStorage.getItem(STORAGE_KEY);
 
   if (!credentials) {
     return null;
