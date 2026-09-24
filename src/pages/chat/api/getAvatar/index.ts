@@ -8,9 +8,11 @@ type AvatarResponse = {
 };
 
 export const getAvatar = async (credentials: Credentials, chatId: string) => {
-  const { data } = await axios.post<AvatarResponse>(buildRequestUrl(credentials, "getAvatar"), {
-    chatId
-  });
+  const { data } = await axios.post<AvatarResponse>(
+    buildRequestUrl(credentials, "getAvatar"),
+    { chatId },
+    { hideErrorToast: true }
+  );
 
   return data;
 };

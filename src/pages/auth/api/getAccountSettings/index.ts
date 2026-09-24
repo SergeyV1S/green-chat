@@ -5,7 +5,9 @@ import type { Credentials } from "@/shared/utils";
 import { buildRequestUrl } from "@/shared/utils";
 
 export const getAccountSettings = async (credentials: Credentials) => {
-  const { data } = await axios.get<AccountSettings>(buildRequestUrl(credentials, "getSettings"));
+  const { data } = await axios.get<AccountSettings>(buildRequestUrl(credentials, "getSettings"), {
+    hideErrorToast: true
+  });
 
   return data;
 };

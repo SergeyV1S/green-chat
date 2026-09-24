@@ -5,7 +5,9 @@ import type { Credentials } from "@/shared/utils";
 import { buildRequestUrl } from "@/shared/utils";
 
 export const getChats = async (credentials: Credentials) => {
-  const { data } = await axios.get<Chat[]>(buildRequestUrl(credentials, "getChats"));
+  const { data } = await axios.get<Chat[]>(buildRequestUrl(credentials, "getChats"), {
+    hideErrorToast: true
+  });
 
   return data;
 };
