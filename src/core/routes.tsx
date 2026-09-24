@@ -8,9 +8,11 @@ import { createRoute } from "@/shared/utils";
 
 const AuthPage = lazy(() => import("@/pages/auth"));
 const ChatPage = lazy(() => import("@/pages/chat"));
+const NotFoundPage = lazy(() => import("@/pages/not-found"));
 
 const AuthRoute = createRoute(PATHS.AUTH, <AuthPage />);
 const ChatRoute = createRoute(PATHS.CHAT, <ChatPage />);
+const NotFoundRoute = createRoute("*", <NotFoundPage />);
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,8 @@ const router = createBrowserRouter([
       {
         element: <ChatsLayout />,
         children: [ChatRoute]
-      }
+      },
+      NotFoundRoute
     ]
   }
 ]);
