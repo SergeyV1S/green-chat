@@ -1,6 +1,7 @@
 import { cn } from "cn";
 
 import * as formatTime from "@/shared/utils";
+import { useHash } from "@/shared/hooks";
 import { Message, MessageAvatar, MessageContent } from "@/shared/ui";
 
 import { getAvatarClassName, getInitials } from "../helpers";
@@ -12,14 +13,21 @@ type ChatListItemProps = {
 
 export const ChatListItem = ({ chat }: ChatListItemProps) => {
   const { id, name, avatarUrl, lastMessageText, lastMessageTimestamp } = chat;
+  const { hashValue: selectedChatId, setHash: selectChat } = useHash();
+
   const time = formatTime.toHoursAndMinutes(lastMessageTimestamp);
   const avatar = getAvatarClassName(id);
+  const isActive = selectedChatId === id;
 
   return (
     <button
       type='button'
       aria-label={name}
-      className='w-full rounded-2xl px-2 py-1.5 text-left transition-colors hover:bg-muted'
+      onClick={() => selectChat(id)}
+      className={cn(
+        "w-full rounded-2xl px-2 py-1.5 text-left transition-colors hover:bg-muted",
+        isActive && "bg-muted"
+      )}
     >
       <Message>
         <MessageAvatar
