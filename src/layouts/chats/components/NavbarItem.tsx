@@ -18,8 +18,8 @@ export const NavbarItem = ({ label, icon: NavIcon, to, badge }: NavItemConfig) =
           <NavIcon
             size={26}
             className={cn(
-              "transition-colors group-hover:text-blue-giant",
-              isActive ? "text-foreground" : "text-muted-foreground"
+              "transition-colors group-hover:text-blue-comet",
+              isActive ? "font-medium text-blue-giant" : "text-muted-foreground"
             )}
           />
           {badge && (
@@ -30,8 +30,8 @@ export const NavbarItem = ({ label, icon: NavIcon, to, badge }: NavItemConfig) =
         </span>
         <span
           className={cn(
-            "text-xs transition-colors group-hover:text-blue-giant",
-            isActive ? "font-medium text-foreground" : "text-muted-foreground"
+            "text-xs transition-colors group-hover:text-blue-comet",
+            isActive ? "font-medium text-blue-giant" : "text-muted-foreground"
           )}
         >
           {label}

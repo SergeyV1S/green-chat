@@ -25,7 +25,7 @@ export const ChatListItem = ({ chat }: ChatListItemProps) => {
       aria-label={name}
       onClick={() => selectChat(id)}
       className={cn(
-        "w-full rounded-2xl px-2 py-1.5 text-left transition-colors hover:bg-muted",
+        "w-full cursor-pointer rounded-2xl px-2 py-1.5 text-left transition-colors hover:bg-muted",
         isActive && "bg-muted"
       )}
     >

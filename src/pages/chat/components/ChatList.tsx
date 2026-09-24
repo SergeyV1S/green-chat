@@ -1,9 +1,7 @@
-import { PlusIcon } from "@phosphor-icons/react";
-
-import { Button, Input, MessageGroup, Spinner } from "@/shared/ui";
+import { Input, MessageGroup, Spinner } from "@/shared/ui";
 
 import { useChatsContext } from "../context";
-import { ChatListItem, ChatListItemSkeleton } from "./";
+import { ChatListItem, ChatListItemSkeleton, NewChatPopover } from "./";
 
 export const ChatList = () => {
   const { state } = useChatsContext();
@@ -12,9 +10,7 @@ export const ChatList = () => {
     <aside className='flex w-105 shrink-0 flex-col border-r bg-card'>
       <header className='flex items-center justify-between px-5 pt-5 pb-3'>
         <h1 className='text-2xl font-bold text-foreground'>Чаты</h1>
-        <Button size='icon' aria-label='Новый чат' className='rounded-full'>
-          <PlusIcon size={20} weight='bold' />
-        </Button>
+        <NewChatPopover />
       </header>
 
       <div className='px-5 pb-3'>

@@ -49,3 +49,27 @@ export type ChatListEntry = {
   id: string;
   chat: ChatListItemModel | null;
 };
+
+export type NotificationTypeWebhook =
+  | "incomingMessageReceived"
+  | "outgoingMessageReceived"
+  | "outgoingAPIMessageReceived"
+  | "outgoingMessageStatus"
+  | "stateInstanceChanged";
+
+export type NotificationBody = {
+  typeWebhook: NotificationTypeWebhook;
+  timestamp: number;
+  idMessage: string;
+  senderData?: {
+    chatId: string;
+    chatName?: string;
+    senderName?: string;
+    senderContactName?: string;
+  };
+  messageData?: {
+    typeMessage: string;
+    textMessageData?: { textMessage: string };
+    extendedTextMessageData?: { text: string };
+  };
+};

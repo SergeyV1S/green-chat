@@ -1,6 +1,5 @@
-import { useChatHistory } from "@/pages/chat/hooks/useChatHistory";
-import type { ChatListItemModel } from "@/pages/chat/types";
-
+import { useConversation } from "../hooks/useConversation";
+import type { ChatListItemModel } from "../types";
 import { ConversationHeader } from "./ConversationHeader";
 import { MessageInput } from "./MessageInput";
 import { MessageList } from "./MessageList";
@@ -11,15 +10,13 @@ type ConversationProps = {
 };
 
 export const Conversation = ({ chatId, chat }: ConversationProps) => {
-  const {
-    state: { messages, isLoading }
-  } = useChatHistory(chatId);
+  const { state, functions } = useConversation(chatId);
 
   return (
     <div className='absolute inset-0 flex flex-col'>
       <ConversationHeader chatId={chatId} chat={chat} />
-      <MessageList messages={messages} isLoading={isLoading} />
-      <MessageInput />
+      <MessageList messages={state.messages} isLoading={state.isLoading} />
+      <MessageInput onSend={functions.handleSend} />
     </div>
   );
 };
