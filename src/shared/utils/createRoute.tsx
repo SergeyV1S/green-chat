@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import type { RouteObject } from "react-router";
 
-import { Spinner } from "../ui";
+import { PageLoader, RouteError } from "../ui";
 
 export const createRoute = (
   path: string,
@@ -9,7 +9,7 @@ export const createRoute = (
   options?: RouteObject
 ): RouteObject => ({
   path,
-  element: <Suspense fallback={<Spinner />}>{element}</Suspense>,
-  errorElement: <div className=''>Error</div>,
+  element: <Suspense fallback={<PageLoader />}>{element}</Suspense>,
+  errorElement: <RouteError />,
   ...options
 });

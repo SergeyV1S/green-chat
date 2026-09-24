@@ -9,3 +9,5 @@ export * from "./label";
 export * from "./spinner";
 export * from "./skeleton";
 export * from "./toast";
+export * from "./pageLoader";
+export * from "./routeError";
