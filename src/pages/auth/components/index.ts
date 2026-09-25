@@ -1,1 +1,1 @@
-export * from "./authForm";
+export * from "./AuthForm";

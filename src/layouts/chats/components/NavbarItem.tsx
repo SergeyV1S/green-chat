@@ -8,10 +8,11 @@ type NavItemConfig = {
   icon: Icon;
   to: string;
   badge?: number;
+  onClick?: () => void;
 };
 
-export const NavbarItem = ({ label, icon: NavIcon, to, badge }: NavItemConfig) => (
-  <NavLink to={to} className='group flex w-16 flex-col items-center' end>
+export const NavbarItem = ({ label, icon: NavIcon, to, badge, onClick }: NavItemConfig) => (
+  <NavLink to={to} className='group flex w-16 flex-col items-center' onClick={onClick} end>
     {({ isActive }) => (
       <>
         <span className='relative flex size-11 items-center justify-center rounded-2xl transition-colors'>

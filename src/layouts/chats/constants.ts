@@ -3,10 +3,12 @@ import {
   ChatCircleDotsIcon,
   GearSixIcon,
   PhoneIcon,
+  SignOutIcon,
   TrayIcon,
   UsersIcon
 } from "@phosphor-icons/react";
 
+import { logout } from "@/pages/auth/helpers";
 import { PATHS } from "@/shared/constants/paths";
 
 const mainNav = [
@@ -20,6 +22,9 @@ const contactsNav = [
   { label: "Звонки", icon: PhoneIcon, to: "/calls" }
 ];
 
-const settingsNav = { label: "Настройки", icon: GearSixIcon, to: "/settings" };
+const footerNav = [
+  { label: "Настройки", icon: GearSixIcon, to: "/settings" },
+  { label: "Выйти", icon: SignOutIcon, to: "#", onClick: logout }
+];
 
-export { mainNav, contactsNav, settingsNav };
+export { mainNav, contactsNav, footerNav };
