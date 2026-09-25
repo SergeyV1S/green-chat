@@ -1,3 +1,5 @@
+import { cn } from "cn";
+
 import backgroundPattern from "@/assets/background-pattern.svg";
 import { useHash } from "@/shared/hooks";
 
@@ -11,7 +13,12 @@ export const ChatArea = () => {
   const selectedChat = state.items.find((item) => item.id === selectedChatId)?.chat ?? null;
 
   return (
-    <main className='relative flex-1 overflow-hidden bg-(image:--gradient-chat)'>
+    <main
+      className={cn(
+        "relative flex-1 overflow-hidden bg-(image:--gradient-chat)",
+        !selectedChatId && "max-[925px]:hidden"
+      )}
+    >
       <div
         aria-hidden
         className='pointer-events-none absolute inset-0 opacity-50'
