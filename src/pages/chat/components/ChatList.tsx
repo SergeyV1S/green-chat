@@ -7,7 +7,7 @@ export const ChatList = () => {
   const { state } = useChatsContext();
 
   return (
-    <aside className='flex w-105 shrink-0 flex-col border-r bg-card'>
+    <aside className='flex w-98 shrink-0 flex-col border-r bg-card'>
       <header className='flex items-center justify-between px-5 pt-5 pb-3'>
         <h1 className='text-2xl font-bold text-foreground'>Чаты</h1>
         <NewChatPopover />
