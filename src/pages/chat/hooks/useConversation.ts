@@ -17,11 +17,7 @@ export const useConversation = (chatId: string) => {
   const messages = mergeMessages(history, liveMessagesByChatId[chatId] ?? []);
 
   const handleSend = async (text: string) => {
-    const credentials = getCredentials();
-
-    if (!credentials) {
-      return;
-    }
+    const credentials = getCredentials()!;
 
     const { idMessage } = await sendMessage(credentials, chatId, text);
 

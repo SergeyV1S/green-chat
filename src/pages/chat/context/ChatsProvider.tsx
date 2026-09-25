@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useRef } from "react";
-import { useNavigate } from "react-router";
 
-import { PATHS } from "@/shared/constants/paths";
 import { type Credentials, getCredentials } from "@/shared/utils";
 
 import { HISTORY_REFRESH_EVERY, POLL_INTERVAL_MS } from "../constants";
@@ -25,7 +23,6 @@ type ChatsContextValue = {
 export const ChatsContext = React.createContext<ChatsContextValue | null>(null);
 
 export const ChatsProvider = ({ children }: { children: React.ReactNode }) => {
-  const navigate = useNavigate();
   const {
     state: { chatsOrder, chatsById, isListLoading, liveMessagesByChatId },
     functions: { addChat, appendLiveMessage, startReceiving, syncChats }
@@ -34,12 +31,7 @@ export const ChatsProvider = ({ children }: { children: React.ReactNode }) => {
   const pollCountRef = useRef(0);
 
   useEffect(() => {
-    const credentials = getCredentials();
-
-    if (!credentials) {
-      navigate(`/${PATHS.AUTH}`, { replace: true });
-      return;
-    }
+    const credentials = getCredentials()!;
 
     syncChats(true, credentials);
 

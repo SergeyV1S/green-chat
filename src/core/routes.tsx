@@ -6,6 +6,8 @@ import { RootLayout } from "@/layouts/root";
 import { PATHS } from "@/shared/constants/paths";
 import { createRoute } from "@/shared/utils";
 
+import { authMiddleware } from "./middlewares";
+
 const AuthPage = lazy(() => import("@/pages/auth"));
 const ChatPage = lazy(() => import("@/pages/chat"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
@@ -17,6 +19,7 @@ const NotFoundRoute = createRoute("*", <NotFoundPage />);
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    middleware: [authMiddleware],
     children: [
       AuthRoute,
       {

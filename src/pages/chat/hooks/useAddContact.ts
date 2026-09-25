@@ -33,11 +33,7 @@ export const useAddContact = ({ onSuccess }: UseAddContactParams) => {
   const onSubmit = form.handleSubmit(async ({ phone }) => {
     setError(null);
 
-    const credentials = getCredentials();
-
-    if (!credentials) {
-      return;
-    }
+    const credentials = getCredentials()!;
 
     try {
       const result = await checkAccount(credentials, Number(normalizePhone(phone)));

@@ -11,11 +11,7 @@ export const useChatHistory = (chatId: string) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const credentials = getCredentials();
-
-    if (!credentials) {
-      return;
-    }
+    const credentials = getCredentials()!;
 
     let cancelled = false;
 
